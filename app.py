@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from flask import Flask, request, jsonify, render_template
 from datetime import datetime
 import json
