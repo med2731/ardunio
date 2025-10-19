@@ -1,0 +1,221 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #0a0a0a;
+    min-height: 100vh;
+    padding: 20px;
+    color: #fff;
+}
+
+.header {
+    text-align: center;
+    padding: 20px 0 40px 0;
+}
+
+.header h1 {
+    font-size: 36px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+}
+
+.header .subtitle {
+    color: #888;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.status-card {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    border: 2px solid #333;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.status-card.open {
+    background: linear-gradient(135deg, #1a2f1a 0%, #2d4a2d 100%);
+    border-color: #4ade80;
+    box-shadow: 0 10px 40px rgba(74, 222, 128, 0.3);
+}
+
+.status-card.closed {
+    background: linear-gradient(135deg, #2f1a1a 0%, #4a2d2d 100%);
+    border-color: #f87171;
+    box-shadow: 0 10px 40px rgba(248, 113, 113, 0.3);
+}
+
+.status-icon {
+    font-size: 100px;
+    margin-bottom: 20px;
+    animation: pulse 2s infinite;
+    filter: drop-shadow(0 0 20px currentColor);
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.8; }
+}
+
+.status-text {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.status-card.open .status-text {
+    color: #4ade80;
+}
+
+.status-card.closed .status-text {
+    color: #f87171;
+}
+
+.status-time {
+    font-size: 14px;
+    color: #888;
+    letter-spacing: 1px;
+}
+
+.history-section {
+    background: #1a1a1a;
+    border: 2px solid #333;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.history-title {
+    font-size: 24px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #333;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.history-list {
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.history-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.history-list::-webkit-scrollbar-track {
+    background: #0a0a0a;
+    border-radius: 10px;
+}
+
+.history-list::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 10px;
+}
+
+.history-list::-webkit-scrollbar-thumb:hover {
+    background: #444;
+}
+
+.history-item {
+    background: #0a0a0a;
+    padding: 18px 25px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    border-left: 4px solid #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.history-item:hover {
+    transform: translateX(8px);
+    background: #151515;
+}
+
+.history-item.open-log {
+    border-left-color: #4ade80;
+    background: #0f1f0f;
+}
+
+.history-item.open-log:hover {
+    background: #1a2f1a;
+}
+
+.history-item.closed-log {
+    border-left-color: #f87171;
+    background: #1f0f0f;
+}
+
+.history-item.closed-log:hover {
+    background: #2f1a1a;
+}
+
+.history-status {
+    font-weight: bold;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.history-item.open-log .history-status {
+    color: #4ade80;
+}
+
+.history-item.closed-log .history-status {
+    color: #f87171;
+}
+
+.history-time {
+    color: #888;
+    font-size: 14px;
+    font-family: 'Courier New', monospace;
+}
+
+.no-data, .loading {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-size: 16px;
+}
+
+@media (max-width: 600px) {
+    .header h1 { font-size: 28px; }
+    .status-card { padding: 30px 20px; }
+    .status-icon { font-size: 70px; }
+    .status-text { font-size: 28px; }
+    .history-section { padding: 20px; }
+    .history-item {
+        flex-direction: column;
+        gap: 8px;
+        text-align: left;
+    }
+}
